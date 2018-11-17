@@ -1,13 +1,13 @@
 package code;
 
 public class Square {
-	private double longitudeB;
-	private double altitudeB;
-	private double longitudeD;
-	private double altitudeD;
+	private String longitudeB;
+	private String altitudeB;
+	private String longitudeD;
+	private String altitudeD;
 
 	
-	public Square(double xB, double yB, double xD, double yD) {
+	public Square(String xB, String yB, String xD, String yD) {
 		this.longitudeB = xB;
 		this.altitudeB = yB;
 		this.longitudeD = xD;

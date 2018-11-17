@@ -1,16 +1,16 @@
 package code;
 
 public class Coordinates {
-private double x;
-private double y;
- public Coordinates(double x, double y) {
+private String x;
+private String y;
+ public Coordinates(String x, String y) {
 	 this.x = x;
 	 this.y = y;
  }
  public double getX() {
-	 return x;
+	 return Double.parseDouble(x);
  }
  public double getY() {
-	 return y;
+	 return Double.parseDouble(y);
  }
 }
