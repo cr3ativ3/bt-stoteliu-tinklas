@@ -13,4 +13,4 @@ private String y;
  public double getY() {
 	 return Double.parseDouble(y);
  }
-}
+}//d

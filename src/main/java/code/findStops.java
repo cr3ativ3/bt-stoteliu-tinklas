@@ -33,13 +33,13 @@ public class findStops {
 	
 	public List<Station> stotelesKvadrate() {
         HardCodedDb StoteliuList = new HardCodedDb();
-        List<Station> FinalList = new ArrayList<Station>();
+        List<Station> FinalListt = new ArrayList<Station>();
         for(Station i : StoteliuList.getStoteles()) {
         	if(isInside(i.getLatitude(), i.getLongtitute()) == true) {
-        		FinalList.add(i);
+        		FinalListt.add(i);
         	}
         }
         
-		return FinalList;
+		return FinalListt;
 	}
 }

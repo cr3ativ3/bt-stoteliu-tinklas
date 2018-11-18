@@ -18,7 +18,7 @@ public class Square {
 	public Coordinates getTopLeft() {
 		return new Coordinates(longitudeB, altitudeB);
 	}
-	public Coordinates getTopRight() {
+	public Coordinates getTopRightt() {
 		return new Coordinates(longitudeD, altitudeB);
 	}
 	public Coordinates getBottomLeft() {
