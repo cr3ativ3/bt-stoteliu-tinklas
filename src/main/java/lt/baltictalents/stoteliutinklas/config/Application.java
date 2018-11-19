@@ -1,5 +1,4 @@
 package lt.baltictalents.stoteliutinklas.config;
-import java.util.List;
 
 import code.*;
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
@@ -14,8 +13,9 @@ public class Application {
 		Square a = new Square("22.2807680","54.7553249", "25.3205599","54.6492589");
 		findStops h = new findStops(a.getTopLeft(), a.getTopRightt(), a.getBottomLeft(), a.getBottomRight());
 	//	System.out.println(h.stotelesKvadrate());
-		System.out.println(h.stotelesKvadrateMax());
-
+		//System.out.println(h.stotelesKvadrateMax());
+		Rutulys m = new Rutulys(new Coordinates("22.2807680","54.7553249"), 10, b.getStoteles());
+		System.out.println(m.rez());
     }
     
 }
