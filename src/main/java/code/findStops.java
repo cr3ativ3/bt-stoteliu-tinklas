@@ -24,14 +24,26 @@ public class findStops {
 	private boolean isInside(String x, String y) {
 		Double xDouble = Double.parseDouble(x);
 		Double yDouble = Double.parseDouble(y);
-		if(TopLeft.getX() < xDouble && TopRight.getX() > xDouble && BottomLeft.getY() < yDouble && TopLeft.getY()>yDouble) return true;
+		if(TopLeft.getX() < xDouble && TopRight.getY() > xDouble && BottomLeft.getX() < yDouble && TopLeft.getY()>yDouble) return true;
+
 		else return false;
 		
 		
 		}
 	
 	
-	public List<Station> stotelesKvadrate() {
+	public List<String> stotelesKvadrate() {
+        HardCodedDb StoteliuList = new HardCodedDb();
+        List<String> FinalListt = new ArrayList<String>();
+        for(Station i : StoteliuList.getStoteles()) {
+        	if(isInside(i.getLatitude(), i.getLongtitute()) == true) {
+        		FinalListt.add(i.getName());
+        	}
+        }
+        
+		return FinalListt;
+	}
+	public List<Station> stotelesKvadrateNeString() {
         HardCodedDb StoteliuList = new HardCodedDb();
         List<Station> FinalListt = new ArrayList<Station>();
         for(Station i : StoteliuList.getStoteles()) {
@@ -41,5 +53,18 @@ public class findStops {
         }
         
 		return FinalListt;
+	}
+	public String stotelesKvadrateMax(){
+		String pavadinimas = null;
+		int skaicius = 0;
+        List<Station> FinalList = stotelesKvadrateNeString();
+        for(Station i:FinalList) {
+    		if(i.getRoutes().length > skaicius) {
+    			skaicius = i.getRoutes().length;
+    			pavadinimas = i.getName();
+    		}
+        }
+
+		return pavadinimas;
 	}
 }
