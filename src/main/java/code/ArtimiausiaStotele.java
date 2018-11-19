@@ -1,16 +1,5 @@
 package code;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeSet;
 
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
 import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
@@ -39,18 +28,23 @@ public class ArtimiausiaStotele {
 		return doubleTaskasY;
 	}
 	
-	public void distance(Coordinates taskas) {
+	public String distance(Coordinates taskas) {
 		
-		List<Double> taskai = new ArrayList<>();
+		
+		double g = 9999999;
+		String pav = null;
 		for(Station a : stoteles.getStoteles()) {
 			
 			Double dx = getTaskasX() - Double.parseDouble(a.getLongtitute());
 			Double dy = getTaskasY() - Double.parseDouble(a.getLatitude());
-			Double atstumasTarpTasku = Math.abs(dx) + Math.abs(dy);
+			if(Math.abs(dx) + Math.abs(dy) < g) {
+				g = Math.abs(dx) + Math.abs(dy);
+				pav = a.getName();
+			}
 			
-			taskai.add(atstumasTarpTasku);
 		}
-		Collections.sort(taskai);
-		System.out.println(taskai.get(0));
+		System.out.println(pav);
+		return pav;
+		
 	}
 }
