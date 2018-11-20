@@ -14,7 +14,7 @@ public class ArtimiausiaStotele {
 	public ArtimiausiaStotele(String x, String y) {
 		this.stringTaskasX = x;
 		this.stringTaskasY = y;
-		Coordinates taskas = new Coordinates(Double.parseDouble(stringTaskasX), Double.parseDouble(stringTaskasY));
+		Coordinates taskas = new Coordinates(stringTaskasX,stringTaskasY);
 		distance(taskas);
 	}
 	
