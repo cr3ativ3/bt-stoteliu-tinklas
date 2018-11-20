@@ -15,12 +15,13 @@ public class stotelesMarsrutai {
 		marsrutuPaieska(stotelesPavadinimas);
 	}
 	
-	public void marsrutuPaieska(String stotelesPavadinimas) {
+	public String marsrutuPaieska(String stotelesPavadinimas) {
+		String b = null;
 		for (Station a : stoteles.getStoteles()) {
 			if (stotelesPavadinimas == a.getName()) {
-				System.out.println( "Stotelës: '" + stotelesPavadinimas + "' koordinatës: " + a.getLongtitute() + " " + a.getLatitude() );
-				System.out.println( "Stotelës: '" + stotelesPavadinimas + "' marðrutai: " + Arrays.toString(a.getRoutes()) );
+				b+= Arrays.toString(a.getRoutes());
 			}
 		}
+		return b;
 	}
 }
