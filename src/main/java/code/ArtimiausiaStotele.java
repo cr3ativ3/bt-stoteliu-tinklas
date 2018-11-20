@@ -9,7 +9,6 @@ public class ArtimiausiaStotele {
 	private String stringTaskasX;
 	private String stringTaskasY;
 	private HardCodedDb stoteles = new HardCodedDb();
-	
 
 	public ArtimiausiaStotele(String x, String y) {
 		this.stringTaskasX = x;
@@ -29,22 +28,16 @@ public class ArtimiausiaStotele {
 	}
 	
 	public String distance(Coordinates taskas) {
-		
-		
 		double g = 99;
 		String pav = null;
 		for(Station a : stoteles.getStoteles()) {
-			
 			Double dx = getTaskasX() - Double.parseDouble(a.getLongtitute());
 			Double dy = getTaskasY() - Double.parseDouble(a.getLatitude());
 			if(Math.abs(dx) + Math.abs(dy) < g) {
 				g = Math.abs(dx) + Math.abs(dy);
 				pav = a.getName();
 			}
-			
 		}
-		System.out.println(pav);
 		return pav;
-		
 	}
 }
