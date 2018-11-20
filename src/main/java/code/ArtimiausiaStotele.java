@@ -31,7 +31,7 @@ public class ArtimiausiaStotele {
 	public String distance(Coordinates taskas) {
 		
 		
-		double g = 9999999;
+		double g = 99;
 		String pav = null;
 		for(Station a : stoteles.getStoteles()) {
 			
