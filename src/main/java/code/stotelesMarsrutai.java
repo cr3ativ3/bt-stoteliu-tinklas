@@ -16,14 +16,11 @@ public class stotelesMarsrutai {
 	}
 	
 	public void marsrutuPaieska(String stotelesPavadinimas) {
-		
-		
 		for (Station a : stoteles.getStoteles()) {
 			if (stotelesPavadinimas == a.getName()) {
-				System.out.println(stotelesPavadinimas);
-				System.out.println(Arrays.toString(a.getRoutes()));
+				System.out.println( "Stotelës: '" + stotelesPavadinimas + "' koordinatës: " + a.getLongtitute() + " " + a.getLatitude() );
+				System.out.println( "Stotelës: '" + stotelesPavadinimas + "' marðrutai: " + Arrays.toString(a.getRoutes()) );
 			}
 		}
 	}
-	
 }
