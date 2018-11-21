@@ -17,15 +17,14 @@ public class paviljonoMarsrutuPaieska {
 		marsrutuPaieska(stringTaskasX, stringTaskasY);
 	}
 	
-	public void marsrutuPaieska(String stringTaskasX, String stringTaskasY) {
+	public String marsrutuPaieska(String stringTaskasX, String stringTaskasY) {
+		String g = null;
 		for (Station a : stoteles.getStoteles()) {
-			if ( stringTaskasX == a.getLongtitute() && stringTaskasY == a.getLatitude() ) {
-				System.out.println( "Pavilijono '" + a.getName() + "' koordinatës: " + a.getLongtitute() + " " + a.getLatitude() );
-				System.out.println( "Pavilijono '" + a.getName() + "' marðrutai: " + Arrays.toString(a.getRoutes()) );
-			}else {
-				System.out.println("Bolgos koordinatës");
-				break;
+			if ( stringTaskasX == a.getLongtitute() && stringTaskasY == a.getLatitude()) {
+				g+=Arrays.toString(a.getRoutes());
 			}
+
 		}
+		return g;
 	}
 }
