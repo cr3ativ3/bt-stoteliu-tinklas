@@ -1,38 +1,35 @@
 package code;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
+import static java.util.stream.Collectors.toList;
 
 import lt.baltictalents.stoteliutinklas.data.beans.Station;
+import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class marsrutoStoteles {
 	
 	private String marsrutoNumeris;
+	private HardCodedDb stoteles = new HardCodedDb();
 	
 	public marsrutoStoteles( String num ) {
 		this.marsrutoNumeris = num;
 		arStoteleTuriTaMarsruta(marsrutoNumeris);
 	}
 	
-	public static Predicate<Station> arStoteleTuriTaMarsruta(String marsrutoNumeris){
-		return stotele -> {
-			for (String route : stotele.getRoutes()) {
-				if(route.contains(marsrutoNumeris)) {
+	public List<Station> arStoteleTuriTaMarsruta(String marsrutoNumeris){
+		Predicate<Station> a = stotele -> {
+			for (String marsrutas : stotele.getRoutes()) {
+				if(marsrutas.contains(marsrutoNumeris)) {
+				    System.out.format("%60s %20s", stotele.getName(), marsrutas);
+				    System.out.println();
 					return true;
 				}
 			}
 			return false;
 		};
-	}
 	
-	public List<Station> filterStoteles(List<Station> stoteles, Predicate<Station> filtras) {
-        List<Station> rezultatas = new ArrayList<>();
-        for (Station atitinkantiStotele: stoteles) {
-            if (filtras.test(atitinkantiStotele)) {
-                rezultatas.add(atitinkantiStotele);
-            }
-        }
-        return rezultatas;
-    }
+		List<Station> tinkamosStoteles = stoteles.getStoteles().stream().filter(a).collect(toList());
+		return tinkamosStoteles;
+	} 
 }
