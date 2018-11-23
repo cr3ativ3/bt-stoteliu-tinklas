@@ -16,10 +16,10 @@ public class stotelesMarsrutai {
 	}
 	
 	public String marsrutuPaieska(String stotelesPavadinimas) {
-		String b = null;
+		String b = "";
 		for (Station a : stoteles.getStoteles()) {
 			if (stotelesPavadinimas == a.getName()) {
-				b+= Arrays.toString(a.getRoutes());
+				 b+= Arrays.toString(a.getRoutes());
 			}
 		}
 		return b;
