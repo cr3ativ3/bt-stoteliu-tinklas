@@ -1,4 +1,4 @@
-package code;
+	 package code;
 
 import java.util.List;
 import lt.baltictalents.stoteliutinklas.data.hardcode.*;
@@ -27,6 +27,10 @@ public class control {
 	public List<String> StotelesRutuly(String x, String y, int r){
 		Rutulys m = new Rutulys(new Coordinates(x,y), r, this.sarasas);
 		return m.rez();
+	}
+	public String DaugiausiaMarsrutu(List<Station> b, int n) {
+    	daugiausiaMarsrutu c = new daugiausiaMarsrutu(b, n);
+    	return c.get();
 	}
 	
 	

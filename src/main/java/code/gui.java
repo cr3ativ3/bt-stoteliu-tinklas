@@ -29,6 +29,8 @@ public class gui {
 	  JButton button5=new JButton("Stoteles Marsrutai");
 	  JButton button6=new JButton("Marsrutu Paeiska");
 	  JButton button7=new JButton("Marsrutu Stoteles");
+	  JButton button8=new JButton("Daugiausia Marsrutu");
+
 	
 	  panel.add(button1);
 	  panel.add(button2);
@@ -37,6 +39,8 @@ public class gui {
 	  panel.add(button5);
 	  panel.add(button6);
 	  panel.add(button7);
+	  panel.add(button8);
+
 	
 	  button1.addActionListener(new Action1());
 	  button2.addActionListener(new Action2());
@@ -45,6 +49,8 @@ public class gui {
 	  button5.addActionListener(new Action5());
 	  button6.addActionListener(new Action6());
 	  button7.addActionListener(new Action7());
+	  button8.addActionListener(new Action8());
+
 
 	  
  }
@@ -130,7 +136,7 @@ public class gui {
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
-		    JLabel label=new JLabel(main.StotelesMarsrutai("Pamėnkalnio st.")); /// jeigu ivedu ranka tada veikia, jeigu per pav tada neveikia
+		    JLabel label=new JLabel(main.StotelesMarsrutai("Pamėnkalnio st.")); /// jeigu ivedu ranka tada veikia, jeigu per pav tada neveikia, nors pav ir ivesties ranka reiksmes vienodos
 		    JPanel panel=new JPanel();
 		    frame2.add(panel);
 		    panel.add(label);
@@ -142,8 +148,12 @@ public class gui {
 	    public void actionPerformed (ActionEvent e){
 	    	String x = JOptionPane.showInputDialog("x");
 			String y = JOptionPane.showInputDialog("y");
+			System.out.println(x);
 			//x = "25.2807679";
-		//	y= "54.7553245";
+			System.out.println(x);
+			System.out.println(y);
+			//y= "54.7553245";
+			System.out.println(y);
 	   	    HardCodedDb b = new HardCodedDb();
 	 	    control main = new control(b.getStoteles());
 		    JFrame frame2=new JFrame("Clicked");
@@ -166,6 +176,23 @@ public class gui {
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
 		    JLabel label=new JLabel(String.valueOf(main.StotelesMarsrutai(pav))); //xujovas kodas StotelesMarsrutai faile
+		    JPanel panel=new JPanel();
+		    frame2.add(panel);
+		    panel.add(label);
+    
+    
+	    }
+ 	}
+ 
+ 	static class Action8 implements ActionListener{
+	    public void actionPerformed (ActionEvent e){
+	    	String pav = JOptionPane.showInputDialog("n");
+	   	    HardCodedDb b = new HardCodedDb();
+	 	    control main = new control(b.getStoteles());
+		    JFrame frame2=new JFrame("Clicked");
+		    frame2.setVisible(true);
+		    frame2.setSize(1000,300);
+		    JLabel label=new JLabel(String.valueOf(main.DaugiausiaMarsrutu(b.getStoteles(), Integer.parseInt(pav)))); 
 		    JPanel panel=new JPanel();
 		    frame2.add(panel);
 		    panel.add(label);
