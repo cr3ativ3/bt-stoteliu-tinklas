@@ -12,10 +12,6 @@ public class Application {
    	    HardCodedDb b = new HardCodedDb();
  	    control main = new control(b.getStoteles());
     	gui Gui = new gui();
-    	for(Station stotis : b.getStoteles()) {
-    		
-    	}
-    	
     }
 	
     
