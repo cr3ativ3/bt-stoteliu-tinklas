@@ -18,6 +18,8 @@ public class stotelesMarsrutai {
 	public String marsrutuPaieska(String stotelesPavadinimas) {
 		String b = "";
 		for (Station a : stoteles.getStoteles()) {
+	    	System.out.println(a.getName());
+
 			if (stotelesPavadinimas == a.getName()) {
 				 b+= Arrays.toString(a.getRoutes());
 			}

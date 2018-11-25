@@ -8,8 +8,9 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class gui {
- public static void main(String [] args)
- {
+	public gui() {
+		
+
 
 	  JFrame frame=new JFrame("Stoteles");
 	  frame.setVisible(true);
@@ -50,8 +51,8 @@ public class gui {
  	static class Action1 implements ActionListener{
 	    public void actionPerformed (ActionEvent e){
 	    	String x1 = JOptionPane.showInputDialog("x1");
-			String x2 = JOptionPane.showInputDialog("x2");
 			String y1 = JOptionPane.showInputDialog("y1");
+			String x2 = JOptionPane.showInputDialog("x2");
 			String y2 = JOptionPane.showInputDialog("y2");
 	   	    HardCodedDb b = new HardCodedDb();
 	 	    control main = new control(b.getStoteles());
@@ -69,8 +70,8 @@ public class gui {
  	static class Action2 implements ActionListener{
 	    public void actionPerformed (ActionEvent e){
 	    	String x1 = JOptionPane.showInputDialog("x1");
-			String x2 = JOptionPane.showInputDialog("x2");
 			String y1 = JOptionPane.showInputDialog("y1");
+			String x2 = JOptionPane.showInputDialog("x2");
 			String y2 = JOptionPane.showInputDialog("y2");
 	   	    HardCodedDb b = new HardCodedDb();
 	 	    control main = new control(b.getStoteles());
@@ -129,7 +130,7 @@ public class gui {
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
-		    JLabel label=new JLabel(main.StotelesMarsrutai(pav)); /// jeigu ivedu ranka tada veikia, jeigu per pav tada neveikia
+		    JLabel label=new JLabel(main.StotelesMarsrutai("Pamėnkalnio st.")); /// jeigu ivedu ranka tada veikia, jeigu per pav tada neveikia
 		    JPanel panel=new JPanel();
 		    frame2.add(panel);
 		    panel.add(label);
@@ -141,12 +142,14 @@ public class gui {
 	    public void actionPerformed (ActionEvent e){
 	    	String x = JOptionPane.showInputDialog("x");
 			String y = JOptionPane.showInputDialog("y");
+			//x = "25.2807679";
+		//	y= "54.7553245";
 	   	    HardCodedDb b = new HardCodedDb();
 	 	    control main = new control(b.getStoteles());
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
-		    JLabel label=new JLabel(String.valueOf(main.MarsrutuPaeiska(x, y)));
+		    JLabel label=new JLabel(String.valueOf(main.MarsrutuPaeiska(x,y ))); // kaip ir praeitas
 		    JPanel panel=new JPanel();
 		    frame2.add(panel);
 		    panel.add(label);
@@ -162,7 +165,7 @@ public class gui {
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
-		    JLabel label=new JLabel(String.valueOf(main.StotelesMarsrutai(pav)));
+		    JLabel label=new JLabel(String.valueOf(main.StotelesMarsrutai(pav))); //xujovas kodas StotelesMarsrutai faile
 		    JPanel panel=new JPanel();
 		    frame2.add(panel);
 		    panel.add(label);

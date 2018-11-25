@@ -11,8 +11,13 @@ public class Application {
 
    	    HardCodedDb b = new HardCodedDb();
  	    control main = new control(b.getStoteles());
-    	System.out.println(main.StotelesMarsrutai("Naujakiemio st."));	
+    	gui Gui = new gui();
+    	for(Station stotis : b.getStoteles()) {
+    		
+    	}
+    	
     }
+	
     
 }
 

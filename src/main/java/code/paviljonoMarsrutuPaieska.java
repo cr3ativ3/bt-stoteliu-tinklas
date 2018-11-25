@@ -18,10 +18,14 @@ public class paviljonoMarsrutuPaieska {
 	}
 	
 	public String marsrutuPaieska(String stringTaskasX, String stringTaskasY) {
-		String g = null;
+		String g = "";
 		for (Station a : stoteles.getStoteles()) {
+			System.out.println(a.getLongtitute());
+			System.out.println(a.getLatitude());
+
 			if ( stringTaskasX == a.getLongtitute() && stringTaskasY == a.getLatitude()) {
 				g+=Arrays.toString(a.getRoutes());
+
 			}
 
 		}
