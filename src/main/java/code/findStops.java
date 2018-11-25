@@ -24,9 +24,16 @@ public class findStops {
 	private boolean isInside(String x, String y) {
 		Double xDouble = Double.parseDouble(x);
 		Double yDouble = Double.parseDouble(y);
-		if(TopLeft.getX() < xDouble && TopRight.getY() > xDouble && BottomLeft.getX() < yDouble && TopLeft.getY()>yDouble) return true;
 
-		else return false;
+		if(TopLeft.getX() < xDouble && TopLeft.getY() > yDouble && BottomRight.getX() > xDouble && BottomRight.getY()<yDouble) {
+			System.out.println();
+
+			return true;}
+		else { 
+			System.out.println(yDouble);
+			System.out.println(BottomRight.getY());
+
+			return false;}
 		
 		
 		}
@@ -36,7 +43,7 @@ public class findStops {
         HardCodedDb StoteliuList = new HardCodedDb();
         List<String> FinalListt = new ArrayList<String>();
         for(Station i : StoteliuList.getStoteles()) {
-        	if(isInside(i.getLatitude(), i.getLongtitute()) == true) {
+        	if(isInside(i.getLongtitute(), i.getLatitude()) == true) {
         		FinalListt.add(i.getName());
         	}
         }
@@ -47,7 +54,7 @@ public class findStops {
         HardCodedDb StoteliuList = new HardCodedDb();
         List<Station> FinalListt = new ArrayList<Station>();
         for(Station i : StoteliuList.getStoteles()) {
-        	if(isInside(i.getLatitude(), i.getLongtitute()) == true) {
+        	if(isInside(i.getLongtitute(), i.getLatitude()) == true) {
         		FinalListt.add(i);
         	}
         }
