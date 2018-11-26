@@ -1,17 +1,35 @@
 package lt.baltictalents.stoteliutinklas.config;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
-import code.*;
-import lt.baltictalents.stoteliutinklas.data.beans.Station;
-import lt.baltictalents.stoteliutinklas.data.hardcode.*;
+
+import lt.baltictalents.stoteliutinklas.data.beans.*;
+import code.gui;
+import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
 
 public class Application {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 
    	    HardCodedDb b = new HardCodedDb();
- 	    control main = new control(b.getStoteles());
-    	gui Gui = new gui();
+    	@SuppressWarnings("unused")
+    	
+    	File file = new File("C:\\Users\\Gytis\\Desktop\\programavimas\\projektas1\\bt-stoteliu-tinklas\\src\\bin\\data\\stoteles.txt"); 
+    	Scanner sc = new Scanner(file);
+		List<Station> SarasasIsFailo = new ArrayList<Station>(1260);
+    	   while (sc.hasNextLine()) {
+    		        String[] data = sc.nextLine().split("\\,");
+    		        String[] keliai = data[3].split("\\;");
+    		        SarasasIsFailo.add(new Station(data[0], data[1],data[2],keliai));
+    	}
+
+
+		gui Gui = new gui(SarasasIsFailo); // uzkomentuot, jeigu nori skaityt is hardcodedDb
+		//	gui Gui = new gui(b.getStoteles());  // atkomentuot, jeigu nori skaityt is failo
+
     }
 	
     

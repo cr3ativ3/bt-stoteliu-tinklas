@@ -1,17 +1,16 @@
 package code;
-
+import java.util.List;
 import javax.swing.*;
-
-import lt.baltictalents.stoteliutinklas.data.hardcode.HardCodedDb;
-
-import java.awt.*;
 import java.awt.event.*;
+import lt.baltictalents.stoteliutinklas.data.beans.*;
 
 public class gui {
-	public gui() {
-		
+	static List<Station> b;
 
+	@SuppressWarnings("static-access")
+	public gui(List<Station> b) {
 
+	  this.b = b;
 	  JFrame frame=new JFrame("Stoteles");
 	  frame.setVisible(true);
 	  frame.setSize(1000,300);
@@ -60,8 +59,7 @@ public class gui {
 			String y1 = JOptionPane.showInputDialog("y1");
 			String x2 = JOptionPane.showInputDialog("x2");
 			String y2 = JOptionPane.showInputDialog("y2");
-	   	    HardCodedDb b = new HardCodedDb();
-	 	    control main = new control(b.getStoteles());
+	 	    control main = new control(b);
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
@@ -79,8 +77,7 @@ public class gui {
 			String y1 = JOptionPane.showInputDialog("y1");
 			String x2 = JOptionPane.showInputDialog("x2");
 			String y2 = JOptionPane.showInputDialog("y2");
-	   	    HardCodedDb b = new HardCodedDb();
-	 	    control main = new control(b.getStoteles());
+	 	    control main = new control(b);
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
@@ -97,8 +94,7 @@ public class gui {
 	    	String x = JOptionPane.showInputDialog("x");
 			String y = JOptionPane.showInputDialog("y");
 			String r = JOptionPane.showInputDialog("r");
-	   	    HardCodedDb b = new HardCodedDb();
-	 	    control main = new control(b.getStoteles());
+	 	    control main = new control(b);
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
@@ -114,8 +110,7 @@ public class gui {
 	    public void actionPerformed (ActionEvent e){
 	    	String x = JOptionPane.showInputDialog("x");
 			String y = JOptionPane.showInputDialog("y");
-	   	    HardCodedDb b = new HardCodedDb();
-	 	    control main = new control(b.getStoteles());
+	 	    control main = new control(b);
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
@@ -129,14 +124,23 @@ public class gui {
  	}
  	static class Action5 implements ActionListener{
 	    public void actionPerformed (ActionEvent e){
-	    	String pav = JOptionPane.showInputDialog("pavadinimas:");
-	   	    HardCodedDb b = new HardCodedDb();
-	 	    control main = new control(b.getStoteles());
+	    	String pav = JOptionPane.showInputDialog("numeris:");
+	 	    control main = new control(b);
 	    	System.out.println(main.StotelesMarsrutai(pav));
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
-		    frame2.setSize(1000,300);
-		    JLabel label=new JLabel(main.StotelesMarsrutai("Pamėnkalnio st.")); /// jeigu ivedu ranka tada veikia, jeigu per pav tada neveikia, nors pav ir ivesties ranka reiksmes vienodos
+		    frame2.setSize(800,800);
+		    String ans = "<html><p>";
+		    int n=0;
+		    for(Station d : main.marsrutoStoteles(pav)) {
+		    	ans +=d.getName()+"  |||  ";
+		    	n++;
+		    	if(n == 3) {ans+="<br/>";
+		    	n=0;
+		    	}
+		    }
+		    ans+="</p></html>";
+		    JLabel label=new JLabel(ans, SwingConstants.CENTER);
 		    JPanel panel=new JPanel();
 		    frame2.add(panel);
 		    panel.add(label);
@@ -154,8 +158,7 @@ public class gui {
 			System.out.println(y);
 			//y= "54.7553245";
 			System.out.println(y);
-	   	    HardCodedDb b = new HardCodedDb();
-	 	    control main = new control(b.getStoteles());
+	 	    control main = new control(b);
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
@@ -169,14 +172,15 @@ public class gui {
  	}
  	static class Action7 implements ActionListener{
 	    public void actionPerformed (ActionEvent e){
-	    	String pav = JOptionPane.showInputDialog("numeris:");
-	   	    HardCodedDb b = new HardCodedDb();
-	 	    control main = new control(b.getStoteles());
+	    	String pav = JOptionPane.showInputDialog("Stoteles Pavadinimas:");
+	    	//pav = "Vaikų ligoninė";
+	    	System.out.println();
+	 	    control main = new control(b);
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
-		    JLabel label=new JLabel(String.valueOf(main.StotelesMarsrutai(pav))); //xujovas kodas StotelesMarsrutai faile
-		    JPanel panel=new JPanel();
+		    JLabel label=new JLabel(String.valueOf(main.StotelesMarsrutai(pav)));
+		    JPanel panel=new JPanel(); // bbd nx
 		    frame2.add(panel);
 		    panel.add(label);
     
@@ -187,12 +191,11 @@ public class gui {
  	static class Action8 implements ActionListener{
 	    public void actionPerformed (ActionEvent e){
 	    	String pav = JOptionPane.showInputDialog("n");
-	   	    HardCodedDb b = new HardCodedDb();
-	 	    control main = new control(b.getStoteles());
+	 	    control main = new control(b);
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
-		    JLabel label=new JLabel(String.valueOf(main.DaugiausiaMarsrutu(b.getStoteles(), Integer.parseInt(pav)))); 
+		    JLabel label=new JLabel(String.valueOf(main.DaugiausiaMarsrutu(b, Integer.parseInt(pav)))); 
 		    JPanel panel=new JPanel();
 		    frame2.add(panel);
 		    panel.add(label);
