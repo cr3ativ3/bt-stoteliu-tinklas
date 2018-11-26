@@ -21,8 +21,6 @@ public class marsrutoStoteles {
 		Predicate<Station> a = stotele -> {
 			for (String marsrutas : stotele.getRoutes()) {
 				if(marsrutas.contains(marsrutoNumeris)) {
-				    System.out.format("%60s %20s", stotele.getName(), marsrutas);
-				    System.out.println();
 					return true;
 				}
 			}

@@ -47,7 +47,7 @@ public class control {
 		paviljonoMarsrutuPaieska b = new paviljonoMarsrutuPaieska(x, y);
 		return b.marsrutuPaieska(x, y);
 	}
-	public List<Station> StoteleMarsrutas(String a) {
+	public List<Station> marsrutoStoteles(String a) {
 		marsrutoStoteles s = new marsrutoStoteles(a);
 		return s.arStoteleTuriTaMarsruta(a);
 	}
