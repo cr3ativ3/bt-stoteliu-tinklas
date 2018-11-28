@@ -173,14 +173,14 @@ public class gui {
  	static class Action7 implements ActionListener{
 	    public void actionPerformed (ActionEvent e){
 	    	String pav = JOptionPane.showInputDialog("Stoteles Pavadinimas:");
-	    	//pav = "Vaikų ligoninė";
+	    	pav = "Vaikų ligoninė";
 	    	System.out.println();
 	 	    control main = new control(b);
 		    JFrame frame2=new JFrame("Clicked");
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
 		    JLabel label=new JLabel(String.valueOf(main.StotelesMarsrutai(pav)));
-		    JPanel panel=new JPanel(); // bbd nx
+		    JPanel panel=new JPanel(); // 
 		    frame2.add(panel);
 		    panel.add(label);
     
