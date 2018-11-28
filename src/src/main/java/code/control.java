@@ -32,7 +32,9 @@ public class control {
     	daugiausiaMarsrutu c = new daugiausiaMarsrutu(b, n);
     	return c.get();
 	}
-	
+	public void writeSQL(String pavadinimas) {
+		writeSQL a =new writeSQL(pavadinimas);
+	}
 	
 	//modestas
 	public String ArtimiausiaStotele(String x, String y) {
@@ -51,6 +53,12 @@ public class control {
 		marsrutoStoteles s = new marsrutoStoteles(a);
 		return s.arStoteleTuriTaMarsruta(a);
 	}
+	public String MarsrutuSusikirtimoVietos(String skaiciai) {
+		marsrutuSusikirtimoVieta a = new marsrutuSusikirtimoVieta(skaiciai);
+		return a.marsrutuSusikirtimai(skaiciai);
+		
+	}
+
 	
 	
 	
