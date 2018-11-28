@@ -24,7 +24,7 @@ public class writeSQL {
 	        System.out.println(e.getMessage());
 	    }
 	}
-	
+
 
 	}
 

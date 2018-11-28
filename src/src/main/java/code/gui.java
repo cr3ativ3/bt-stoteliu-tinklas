@@ -29,6 +29,8 @@ public class gui {
 	  JButton button6=new JButton("Marsrutu Paeiska");
 	  JButton button7=new JButton("Marsrutu Stoteles");
 	  JButton button8=new JButton("Daugiausia Marsrutu");
+	  JButton button9=new JButton("Marsrutu susikirtimo vieta");
+	  JButton button10=new JButton("Sukurtu SQlite faila");
 
 	
 	  panel.add(button1);
@@ -39,6 +41,8 @@ public class gui {
 	  panel.add(button6);
 	  panel.add(button7);
 	  panel.add(button8);
+	  panel.add(button9);
+	  panel.add(button10);
 
 	
 	  button1.addActionListener(new Action1());
@@ -49,6 +53,9 @@ public class gui {
 	  button6.addActionListener(new Action6());
 	  button7.addActionListener(new Action7());
 	  button8.addActionListener(new Action8());
+	  button9.addActionListener(new Action9());
+	  button10.addActionListener(new Action10());
+
 
 
 	  
@@ -196,6 +203,37 @@ public class gui {
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
 		    JLabel label=new JLabel(String.valueOf(main.DaugiausiaMarsrutu(b, Integer.parseInt(pav)))); 
+		    JPanel panel=new JPanel();
+		    frame2.add(panel);
+		    panel.add(label);
+    
+    
+	    }
+ 	}
+ 	static class Action9 implements ActionListener{
+	    public void actionPerformed (ActionEvent e){
+	    	String pav = JOptionPane.showInputDialog("numeriai atskirti tarpeliais:");
+	 	    control main = new control(b);
+		    JFrame frame2=new JFrame("Clicked");
+		    frame2.setVisible(true);
+		    frame2.setSize(1000,300);
+		    JLabel label=new JLabel(main.MarsrutuSusikirtimoVietos(pav)); 
+		    JPanel panel=new JPanel();
+		    frame2.add(panel);
+		    panel.add(label);
+    
+    
+	    }
+ 	}
+ 	static class Action10 implements ActionListener{
+	    public void actionPerformed (ActionEvent e){
+	    	String pav = JOptionPane.showInputDialog("failo pavadinimas:");
+	 	    control main = new control(b);
+	 	    main.writeSQL(pav);
+		    JFrame frame2=new JFrame("Clicked");
+		    frame2.setVisible(true);
+		    frame2.setSize(1000,300);
+		    JLabel label=new JLabel("Failas Sukurtas pavadinimu: "+pav); 
 		    JPanel panel=new JPanel();
 		    frame2.add(panel);
 		    panel.add(label);
