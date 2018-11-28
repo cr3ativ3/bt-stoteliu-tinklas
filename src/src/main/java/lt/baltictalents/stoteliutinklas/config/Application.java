@@ -1,6 +1,7 @@
 package lt.baltictalents.stoteliutinklas.config; 
 import java.util.ArrayList;
 
+
 import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,10 +15,10 @@ public class Application {
 
 	public static void main(String[] args) throws FileNotFoundException {
 
-  // 	    HardCodedDb b = new HardCodedDb();
+   	    HardCodedDb b = new HardCodedDb();
     	@SuppressWarnings("unused")
     	
-    	File file = new File("C:\\Users\\Gytis\\Desktop\\programavimas\\projektas1\\bt-stoteliu-tinklas\\src\\bin\\data\\stoteles.txt"); 
+    	File file = new File("C:\\Users\\Gytis\\Desktop\\stotelesSQL\\src\\files\\stoteles.txt"); 
     	Scanner sc = new Scanner(file);
 		List<Station> SarasasIsFailo = new ArrayList<Station>(1260);
     	   while (sc.hasNextLine()) {
@@ -27,8 +28,8 @@ public class Application {
     	}
 
     	writeSQL writeSQL = new writeSQL("stoteles");
-		gui Gui = new gui(SarasasIsFailo); // uzkomentuot, jeigu nori skaityt is hardcodedDb
-		//gui Gui = new gui(b.getStoteles());  // uzkomentuot, jeigu nori skaityt is failo
+	//	gui Gui = new gui(SarasasIsFailo); // uzkomentuot, jeigu nori skaityt is hardcodedDb
+		gui Gui = new gui(b.getStoteles());  // uzkomentuot, jeigu nori skaityt is failo
 
     }
 	
