@@ -27,8 +27,8 @@ public class Application {
     		        SarasasIsFailo.add(new Station(data[0], data[1],data[2],keliai));
     	}
 
-	//	gui Gui = new gui(SarasasIsFailo); // uzkomentuot, jeigu nori skaityt is hardcodedDb
-		gui Gui = new gui(b.getStoteles());  // uzkomentuot, jeigu nori skaityt is failo
+		gui Gui = new gui(SarasasIsFailo); // uzkomentuot, jeigu nori skaityt is hardcodedDb
+//		gui Gui = new gui(b.getStoteles());  // uzkomentuot, jeigu nori skaityt is failo
 
     }
 	
