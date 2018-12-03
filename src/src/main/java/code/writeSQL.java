@@ -1,23 +1,28 @@
 package code;
-import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class writeSQL {
 
 	private final String url = "jdbc:sqlite:C:\\Users\\Gytis\\";
-
+	private final String table = "CREATE TABLE IF NOT EXISTS Stoteles (\n"
+            + "	Name text,\n"
+            + "	Longitude text,\n"
+            + "	Latitude text,\n"
+            + "	Marsrutai text,\n"
+            + "	Prieziuros_Darbai date \n"
+            + ");";
 
 	public writeSQL(String fileName) {
-		 
 	    try (Connection conn = DriverManager.getConnection(url+fileName+".db")) {
-	    	System.out.println("labas");
 	        if (conn != null) {
 	            DatabaseMetaData meta = conn.getMetaData();
-	            System.out.println("The driver name is " + meta.getDriverName());
-	            System.out.println("A new database has been created.");
+	            Statement stmt = conn.createStatement(); 
+	            stmt.execute(table);
+	            
 	        }
 
 	    } catch (SQLException e) {
