@@ -35,6 +35,16 @@ public class control {
 	public void writeSQL(String pavadinimas) {
 		writeSQL a =new writeSQL(pavadinimas);
 	}
+	public void AddDataToTable(String pavadinimas) {
+		AddData a = new AddData(pavadinimas);
+		for(Station b : sarasas) {
+			String keliai = "";
+			for(int i = 0; i < b.getRoutes().length; i++) {
+				keliai += b.getRoutes()[i]+" | ";
+			}
+		a.CreateStop(b.getName(), b.getLatitude(), b.getLongtitute(),keliai);
+		}
+	}
 	
 	//modestas
 	public String ArtimiausiaStotele(String x, String y) {
