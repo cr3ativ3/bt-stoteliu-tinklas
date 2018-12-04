@@ -1,12 +1,2 @@
-*.class
-build/
-.gradle
-
-*.jar
-!gradle/wrapper/*.jar
-*.aar
-*.war
-/bin/
-/.settings/
-.project
-.classpath
+/.gradle/
+/build/
