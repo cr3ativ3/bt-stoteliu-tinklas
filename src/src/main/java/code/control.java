@@ -44,6 +44,10 @@ public class control {
 			}
 		a.CreateStop(b.getName(), b.getLatitude(), b.getLongtitute(),keliai);
 		}
+		for(Station b : sarasas) {
+
+	    UpdateData g = new UpdateData(b.getName(),"5");
+		}
 	}
 	
 	//modestas
