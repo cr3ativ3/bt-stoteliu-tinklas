@@ -234,11 +234,10 @@ public class gui {
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
 		    JLabel label1=new JLabel("Failas Sukurtas pavadinimu: "+pav); 
-		    JLabel label2=new JLabel("Failas kuriamas....."); 
 		    JPanel panel=new JPanel();
 		    frame2.add(panel);
-		    panel.add(label2);
 		    main.AddDataToTable(pav);
+		    System.out.println("nu2");
 		    panel.add(label1);
     
     
