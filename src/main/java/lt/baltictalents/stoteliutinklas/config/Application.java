@@ -19,7 +19,7 @@ public class Application {
     	@SuppressWarnings("unused")
     	
     	File file = new File("C:\\Users\\Gytis\\Desktop\\stotelesSQL\\src\\files\\stoteles.txt"); 
-    	Scanner sc = new Scanner(file);
+    	Scanner sc = new Scanner(file, "UTF-8");
 		List<Station> SarasasIsFailo = new ArrayList<Station>(1260);
     	   while (sc.hasNextLine()) {
     		        String[] data = sc.nextLine().split("\\,");
