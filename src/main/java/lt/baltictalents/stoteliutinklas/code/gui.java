@@ -2,6 +2,9 @@ package lt.baltictalents.stoteliutinklas.code;
 import java.util.List;
 import javax.swing.*;
 import java.awt.event.*;
+import java.sql.Date;
+import java.time.LocalDateTime;
+
 import lt.baltictalents.stoteliutinklas.data.beans.*;
 
 public class gui {
@@ -30,7 +33,9 @@ public class gui {
 	  JButton button7=new JButton("Marsrutu Stoteles");
 	  JButton button8=new JButton("Daugiausia Marsrutu");
 	  JButton button9=new JButton("Marsrutu susikirtimo vieta");
-	  JButton button10=new JButton("Sukurtu SQlite faila");
+	  JButton button10=new JButton("Sukurti SQlite faila");
+	  JButton button11=new JButton("Pakeisti prieziuros darbu data");
+	  JButton button12=new JButton("Pakeisti prieziuros darbu datai siandien");
 
 	
 	  panel.add(button1);
@@ -43,6 +48,9 @@ public class gui {
 	  panel.add(button8);
 	  panel.add(button9);
 	  panel.add(button10);
+	  panel.add(button11);
+	  panel.add(button12);
+
 
 	
 	  button1.addActionListener(new Action1());
@@ -55,6 +63,9 @@ public class gui {
 	  button8.addActionListener(new Action8());
 	  button9.addActionListener(new Action9());
 	  button10.addActionListener(new Action10());
+	  button11.addActionListener(new Action11());
+	  button12.addActionListener(new Action12());
+
 
 
 
@@ -234,10 +245,45 @@ public class gui {
 		    frame2.setVisible(true);
 		    frame2.setSize(1000,300);
 		    JLabel label1=new JLabel("Failas Sukurtas pavadinimu: "+pav); 
-		    JLabel label2=new JLabel("Failas kuriamas....."); 
 		    JPanel panel=new JPanel();
 		    frame2.add(panel);
-		    panel.add(label2);
+		    main.AddDataToTable(pav);
+		    panel.add(label1);
+    
+    
+	    }
+ 	}
+ 	static class Action11 implements ActionListener{
+	    public void actionPerformed (ActionEvent e){
+	    	String pav = JOptionPane.showInputDialog("Doumenu bazes failo pavadinimas:");
+	    	String StotelesPav = JOptionPane.showInputDialog("Stoteles pavadinimas:");
+	    	String data = JOptionPane.showInputDialog("Data, kada atnaujinta stotele:");
+	 	    control main = new control(b);
+		    JFrame frame2=new JFrame("Clicked");
+		    frame2.setVisible(true);
+		    frame2.setSize(1000,300);
+		    main.PakeistiDarbuData(pav, StotelesPav, data);
+		    JLabel label1=new JLabel("Data pakeista"); 
+		    JPanel panel=new JPanel();
+		    frame2.add(panel);
+		    main.AddDataToTable(pav);
+		    panel.add(label1);
+    
+    
+	    }
+ 	}
+ 	static class Action12 implements ActionListener{
+	    public void actionPerformed (ActionEvent e){
+	    	String pav = JOptionPane.showInputDialog("Doumenu bazes failo pavadinimas:");
+	    	String StotelesPav = JOptionPane.showInputDialog("Stoteles pavadinimas:");
+	 	    control main = new control(b);
+		    JFrame frame2=new JFrame("Clicked");
+		    frame2.setVisible(true);
+		    frame2.setSize(1000,300);
+		    main.PakeistiDarbuData(pav, StotelesPav, String.valueOf(LocalDateTime.now()));
+		    JLabel label1=new JLabel("Data pakeistaa"); 
+		    JPanel panel=new JPanel();
+		    frame2.add(panel);
 		    main.AddDataToTable(pav);
 		    panel.add(label1);
     

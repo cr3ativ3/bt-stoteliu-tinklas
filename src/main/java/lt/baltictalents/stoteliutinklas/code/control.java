@@ -43,6 +43,15 @@ public class control {
 				keliai += b.getRoutes()[i]+" | ";
 			}
 		a.CreateStop(b.getName(), b.getLatitude(), b.getLongtitute(),keliai);
+		b.setNewDate("Undefined");
+		}
+	}
+	public void PakeistiDarbuData(String fileName, String name, String data) {
+		UpdateData m = new UpdateData(name, data, fileName);
+		for(Station h : sarasas) {
+			if(h.getName()==name) {
+				h.setNewDate(data);
+			}
 		}
 	}
 	

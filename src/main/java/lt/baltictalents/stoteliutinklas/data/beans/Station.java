@@ -5,6 +5,8 @@ public class Station {
 	String longtitute;
 	String latitude;
 	String[] routes;
+	String data = "undefined";
+
 
 	public Station(String name, String lon, String lat, String[] routes) {
 		super();
@@ -44,6 +46,9 @@ public class Station {
 
 	public void setRoutes(String[] routes) {
 		this.routes = routes;
+	}
+	public void setNewDate(String data) {
+		this.data = data;
 	}
 
 }
